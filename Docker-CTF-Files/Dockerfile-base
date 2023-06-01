@@ -1,0 +1,28 @@
+FROM ubuntu:22.04
+
+# └─$ sudo docker run -it --network host ubuntu:latest bash  
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt update --fix-missing && apt -y upgrade
+RUN apt install -y apt-transport-https
+RUN apt install -y netcat python3-pip ruby-full valgrind vim nano xclip elfutils
+RUN apt install -y checksec
+RUN apt install -y terminator git gdb git wget patchelf file strace tmux exa python3
+
+WORKDIR /opt
+RUN git clone https://github.com/pwndbg/pwndbg
+WORKDIR /opt/pwndbg
+ENV LC_ALL=C.UTF-8
+RUN ./setup.sh
+
+WORKDIR /opt
+RUN wget http://github.com/io12/pwninit/releases/download/3.3.0/pwninit
+RUN chmod +x pwninit
+
+RUN gem install one_gadget
+RUN pip3 install Ipython angr
+
+WORKDIR /chal
+CMD bash
+
