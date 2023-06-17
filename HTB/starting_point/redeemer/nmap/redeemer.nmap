@@ -1,0 +1,1 @@
+# Nmap 7.93SVN scan initiated Sat Jun 17 18:50:51 2023 as: nmap -p- -sV -vv -oA nmap/redeemer 10.129.161.86

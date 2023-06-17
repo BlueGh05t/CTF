@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.93SVN scan initiated Sat Jun 17 18:50:51 2023 as: nmap -p- -sV -vv -oA nmap/redeemer 10.129.161.86 -->
+<nmaprun scanner="nmap" args="nmap -p- -sV -vv -oA nmap/redeemer 10.129.161.86" start="1687042251" startstr="Sat Jun 17 18:50:51 2023" version="7.93SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="2"/>
+<debugging level="0"/>
+<taskbegin task="Ping Scan" time="1687042251"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="10.129.161.86" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskend task="Ping Scan" time="1687042251" extrainfo="1 total hosts"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1687042251"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1687042251"/>
+<taskbegin task="Connect Scan" time="1687042251"/>
+<taskprogress task="Connect Scan" time="1687042282" percent="2.59" remaining="1168" etc="1687043449"/>

@@ -1,0 +1,2 @@
+# Nmap 7.93SVN scan initiated Sat Jun 17 18:50:51 2023 as: nmap -p- -sV -vv -oA nmap/redeemer 10.129.161.86
+# Ports scanned: TCP(65535;1-65535) UDP(0;) SCTP(0;) PROTOCOLS(0;)
