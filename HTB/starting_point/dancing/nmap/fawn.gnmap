@@ -1,0 +1,4 @@
+# Nmap 7.93SVN scan initiated Sat Jun 17 18:05:53 2023 as: nmap -sV -sC -oA nmap/fawn 10.129.150.224
+Host: 10.129.150.224 ()	Status: Up
+Host: 10.129.150.224 ()	Ports: 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 445/open/tcp//microsoft-ds?///	Ignored State: closed (997)
+# Nmap done at Sat Jun 17 18:06:19 2023 -- 1 IP address (1 host up) scanned in 26.14 seconds
