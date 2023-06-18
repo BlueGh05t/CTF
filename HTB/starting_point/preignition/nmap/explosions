@@ -1,0 +1,11 @@
+# Nmap 7.80 scan initiated Sun Jun 18 00:30:24 2023 as: nmap -sV -sC --min-rate 1000 --max-retries 5 -oN nmap/explosions 10.129.227.76
+Nmap scan report for 10.129.227.76
+Host is up (0.12s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    nginx 1.14.2
+|_http-server-header: nginx/1.14.2
+|_http-title: Welcome to nginx!
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jun 18 00:30:36 2023 -- 1 IP address (1 host up) scanned in 12.44 seconds

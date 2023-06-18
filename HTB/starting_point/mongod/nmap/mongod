@@ -1,0 +1,15 @@
+# Nmap 7.80 scan initiated Sun Jun 18 02:57:27 2023 as: nmap -p- -v -sV -sC --min-rate 1000 --max-retries 2 -oN nmap/mongod 10.129.228.30
+Warning: 10.129.228.30 giving up on port because retransmission cap hit (2).
+Nmap scan report for 10.129.228.30
+Host is up (0.12s latency).
+Not shown: 64242 closed ports, 1291 filtered ports
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+27017/tcp open  mongodb MongoDB 3.6.8
+|_mongodb-databases: ERROR: Script execution failed (use -d to debug)
+|_mongodb-info: ERROR: Script execution failed (use -d to debug)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jun 18 02:58:55 2023 -- 1 IP address (1 host up) scanned in 88.08 seconds
