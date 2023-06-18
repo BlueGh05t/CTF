@@ -1,0 +1,83 @@
+Hack the Box
+Starting Point
+
+Explosions
+
+10.129.1.13
+
+nmap -sV -sC --min-rate 1000 --max-retries 5 -oN nmap/explosions 10.129.1.13
+
+$ nmap -vv -sV -sC --min-rate 1000 --max-retries 5 -oN nmap/explosions 10.129.1.13
+
+Scanning 10.129.1.13 [1000 ports]
+Discovered open port 3389/tcp on 10.129.1.13
+Discovered open port 445/tcp on 10.129.1.13
+Discovered open port 135/tcp on 10.129.1.13
+Discovered open port 139/tcp on 10.129.1.13
+
+PORT     STATE SERVICE       REASON  VERSION
+135/tcp  open  msrpc         syn-ack Microsoft Windows RPC
+139/tcp  open  netbios-ssn   syn-ack Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds? syn-ack
+3389/tcp open  ms-wbt-server syn-ack Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: EXPLOSION
+|   NetBIOS_Domain_Name: EXPLOSION
+|   NetBIOS_Computer_Name: EXPLOSION
+|   DNS_Domain_Name: Explosion
+|   DNS_Computer_Name: Explosion
+|   Product_Version: 10.0.17763
+|_  System_Time: 2023-06-18T00:06:43+00:00
+| ssl-cert: Subject: commonName=Explosion
+| Issuer: commonName=Explosion
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2023-06-16T23:55:00
+| Not valid after:  2023-12-16T23:55:00
+| MD5:   05bd 799f 78d6 d7c9 8ce3 797f 1cdc b5d2
+| SHA-1: 5ac1 f186 ac6d f20f 33b4 ec0c ee80 955f 16df cf88
+| -----BEGIN CERTIFICATE-----
+| MIIC1jCCAb6gAwIBAgIQSgCpnc6I7YtOc+npar50LjANBgkqhkiG9w0BAQsFADAU
+| MRIwEAYDVQQDEwlFeHBsb3Npb24wHhcNMjMwNjE2MjM1NTAwWhcNMjMxMjE2MjM1
+| NTAwWjAUMRIwEAYDVQQDEwlFeHBsb3Npb24wggEiMA0GCSqGSIb3DQEBAQUAA4IB
+| DwAwggEKAoIBAQDB4EX/T3OZgGL1+U1C2wMNzHDzSaQ0POVBUc90qOsM8nxbKalq
+| eqbxP7X+D7DsAx5Zb54Fr7fgW67fJ7zbMY2HEXZxoPTY17eUqZ4NgRQeUlX72N2A
+| o5MKta3n2zZDOFoBKT2BsAf0ztyUBL0sRzrDNpnn/ojwJFjkwYjObNtpGV+yHS7G
+| LinS2pn43CNcMgjTfTgVnGbA7wz13BucyOPtnvGnCWrw9UMhIh0nPAJ8u+LyMv3H
+| ZrXBrCSXx+iIWPV20YnHFaUNOL4Clk+94G/A2+LqQcbEcJGzlKmRnUAYao6elhtl
+| OXCGY7Z6wDBEwnz+d9cKRHGsWMVMGB8aVtLNAgMBAAGjJDAiMBMGA1UdJQQMMAoG
+| CCsGAQUFBwMBMAsGA1UdDwQEAwIEMDANBgkqhkiG9w0BAQsFAAOCAQEAQ9RDp03/
+| KAUWJIjDyr/yl6Pj7sXAPO9AEvsVGKyyv8KbtEuI5BTvY5Q0D6mv3TXsCAknmJRR
+| +i7vux6CKqh1bxv6FOAPyYN7BUqh0legnoPbwXMH8TElT5cS9IonihvqIbpt5CWc
+| U+aPYu57fbPF4SNPE3Yx2sa0R4HYeKU8GfrolJ/dbfDZJI55b+cNjTgL1Y8qL/ux
+| 0+MbCQchuScEUAwzAl0hWfYsTIlEY5nyWsu52fiogepixVMcfKEHVFIKW3bJnP+n
+| iRXQ/KwZRAIhxI0ccgJcosrYVom6F3M0rNI6po/lIXj+qR9MuNp/f46LONINBOLS
+| s6mcdO6ITd4C8g==
+|_-----END CERTIFICATE-----
+|_ssl-date: 2023-06-18T00:06:51+00:00; 0s from scanner time.
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 0s, deviation: 0s, median: 0s
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 37798/tcp): CLEAN (Couldn't connect)
+|   Check 2 (port 23330/tcp): CLEAN (Couldn't connect)
+|   Check 3 (port 51124/udp): CLEAN (Timeout)
+|   Check 4 (port 50597/udp): CLEAN (Failed to receive data)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2023-06-18T00:06:46
+|_  start_date: N/A
+
+
+xfreerdp /v:10.129.1.13
+
+xfreerdp /v:10.129.1.13 /cert:ignore /u:Administrator
+
+flat.txt found on desktop:
+951fa96d7830c451b536be5a6be008a0
